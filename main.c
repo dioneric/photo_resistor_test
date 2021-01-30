@@ -13,18 +13,17 @@ PIC16F887
 AUTHOR: ENG BUNTHA */
 
 void main() {
-     char LED;
      PORTA=0x00;
-     TRISA=0b10000000;
-     OSCCON=0b01110000;
-      
+     TRISA=0b00000000;
+     TRISB=0b00000000;
+     OSCCON=0b01110001;
+     PCON=0b00000000;
+     
      while(1) {
-        LED=0x01;
-        while(LED!=0x00) {
-            PORTA=LED;
-            __delay_ms(100);
-            LED<<=1;      // SHIFT LEFT ONE TIME
-        }
-    }
+         PORTA=0xFF;
+         __delay_ms(500);
+         PORTA=0x00;
+         __delay_ms(500);
+     }
 }
 
